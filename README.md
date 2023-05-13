@@ -1,4 +1,4 @@
-# pigjs
+# akjs examples
 
 > 基于 Koa 的 Nodejs 轻量框架，快速生成 node + koa + mysql 等功能的后台服务
 
@@ -13,7 +13,7 @@ node + koa2 + mysql + pm2
 1. 依赖安装 `npm i`
 2. 启动数据库 `mysql.server start`
 3. 登录数据库 `mysql -uroot -p` 输入密码进入
-4. 创建数据库 `CREATE DATABASE pigjs;`
+4. 创建数据库 `CREATE DATABASE akjs_example;`
 5. 启动方式
    - 本地启动 `npm start`
    - 测试环境启动 `npm run server-test`
@@ -33,27 +33,28 @@ node + koa2 + mysql + pm2
 ├── config                // 配置文件，与default.conf.js文件合并
 │   ├── default.conf.js
 │   └── dev.conf.js
-├── middlewares           // 中间件
+├── middleware           // 中间件
 │   ├── body-parser.js
 │   ├── favicon.js
 │   ├── index.js
 │   ├── proxy-cdn.js
 │   └── session.js
-├── modules               // 业务模块，每个文件夹对应一个模块，含route\service\model
+├── module               // 业务模块，每个文件夹对应一个模块，含route\service\model
 │   ├── index.js
 │   ├── passport          // 登录业务模块
 │   │   ├── index.js
-│   │   ├── model.js
-│   │   ├── service.js
-│   │   └── sql.js
+│   │   ├── Model.js
+│   │   ├── Service.js
+│   │   └── Controller.js
 │   └── user              // 用户模块
 │       ├── index.js
-│       ├── model.js
-│       ├── service.js
-│       └── sql.js
-├── sql                   // SQL文件，启动创建的表等
-│   ├── db.sql
-│   └── user.sql
+│       ├── Model.js
+│       ├── Service.js
+│       └── Controller.js
+├── plugin
+│   ├── index.js
+│   ├── sequelize.js
+│   └── validate.js
 └── utils                 // 方法工具集
     ├── db.js
     ├── error.js
