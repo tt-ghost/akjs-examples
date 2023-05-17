@@ -2,12 +2,11 @@ export default (app) => {
   const { config } = app;
 
   config.db = {
-    database: "koa_startkit",
+    database: "akjs_example",
     user: "root",
-    password: "123456",
+    password: "12345678",
     port: "3306",
     host: "localhost",
     connectTimeout: 30 * 1000,
   };
-  // config.env = {};
 };

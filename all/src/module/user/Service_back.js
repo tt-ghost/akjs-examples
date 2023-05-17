@@ -2,7 +2,7 @@ import BaseService from "../../base/service.js";
 
 export default class UserService extends BaseService {
   constructor() {
-    super("modules/user/model.js");
+    super("module/user/model.js");
   }
 
   /**

@@ -2,7 +2,7 @@ import Router from "koa-router";
 import { Module } from "akjs";
 import Controller from "./Controller.js";
 import Service from "./Service.js";
-import model from "./model.js";
+import Model from "./Model.js";
 
 export default class User extends Module {
   constructor() {
@@ -10,7 +10,7 @@ export default class User extends Module {
     this.router = new Router();
     this.controller = new Controller();
     this.service = new Service();
-    this.model = model(this.app);
+    this.model = Model(this.app);
 
     this.loadToApp();
   }

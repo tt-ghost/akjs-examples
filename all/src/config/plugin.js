@@ -1,4 +1,4 @@
-import { validate, sequelize } from "../plugins/index.js";
+import { validate, sequelize } from "../plugin/index.js";
 
 export default {
   validate: {

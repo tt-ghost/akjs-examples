@@ -1,17 +1,23 @@
-/**
- * passport model
- */
-import BaseModel from "../../base/model.js";
-import SQL from "./sql.js";
+export default (app) => {
+  const { DataTypes } = app.Sequelize;
+  const attrs = {
+    id: {
+      type: DataTypes.INTEGER.UNSIGNED,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    username: DataTypes.STRING,
+    birthday: DataTypes.DATE,
+    status: DataTypes.STRING,
+    name: DataTypes.STRING,
+    nickname: DataTypes.STRING,
+    email: DataTypes.STRING,
+    password: DataTypes.STRING,
+    avator: DataTypes.STRING,
+    sex: DataTypes.STRING,
+  };
 
-export default class PassportModel extends BaseModel {
-  login(user) {
-    const { username, pwd } = user;
-    return this.query(SQL.PASSPORT_LOGIN, [username, pwd]);
-  }
+  const opts = { tableName: "user" };
 
-  reg(user) {
-    const { username, pwd } = user;
-    return this.query(SQL.PASSPORT_REG, [username, pwd]);
-  }
-}
+  return app.defineModel("user", attrs, opts);
+};

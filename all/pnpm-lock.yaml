@@ -3,7 +3,7 @@ lockfileVersion: '6.0'
 dependencies:
   akjs:
     specifier: ^0.1.1
-    version: 0.1.1
+    version: link:node_modules/akjs
   koa:
     specifier: ^2.14.2
     version: 2.14.2
@@ -535,28 +535,6 @@ packages:
       fast-json-stable-stringify: 2.1.0
       json-schema-traverse: 0.4.1
       uri-js: 4.4.1
-
-  /akjs@0.1.1:
-    resolution: {integrity: sha512-1AHJW/IViyrXdTx9kdW5hMgE0+LXNyWYOVtNKLG6KL3BRuC6RphibLI2sXlJ99+Vc8st9j3VcsCmEBG4LVkEQQ==}
-    dependencies:
-      koa: 2.14.2
-      koa-bodyparser: 4.4.0
-      koa-router: 12.0.0
-      mysql: 2.18.1
-      mysql2: 3.3.1
-      parameter: 3.7.0
-      sequelize: 6.31.1(mysql2@3.3.1)
-    transitivePeerDependencies:
-      - ibm_db
-      - mariadb
-      - oracledb
-      - pg
-      - pg-hstore
-      - snowflake-sdk
-      - sqlite3
-      - supports-color
-      - tedious
-    dev: false
 
   /ansi-regex@5.0.1:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
