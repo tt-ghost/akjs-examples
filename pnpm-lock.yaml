@@ -2,8 +2,8 @@ lockfileVersion: '6.0'
 
 dependencies:
   akjs:
-    specifier: 0.1.0
-    version: 0.1.0
+    specifier: 0.1.2
+    version: 0.1.2
   await-to-js:
     specifier: ^3.0.0
     version: 3.0.0
@@ -539,26 +539,13 @@ packages:
       json-schema-traverse: 0.4.1
       uri-js: 4.4.1
 
-  /akjs@0.1.0:
-    resolution: {integrity: sha512-4ZwQPMuwc5BHq5Td+8FmDT6uaOxMCC+SfoBFtHOiyApfArzjl7+0+gJA8KBD/06Y7oxkvxtwWs2hVbXZk5uMLQ==}
+  /akjs@0.1.2:
+    resolution: {integrity: sha512-41A0woH/5LsCbkIknHkE0QeRPeLNriBb7YXCBdhy9etmGohry+6EnssdkzZ9YumsKRtsqMqfXK7tqLPIr/DeyQ==}
     dependencies:
       koa: 2.14.2
-      koa-bodyparser: 4.4.0
       koa-router: 12.0.0
-      mysql: 2.18.1
-      mysql2: 3.3.1
-      parameter: 3.7.0
-      sequelize: 6.31.1(mysql2@3.3.1)
     transitivePeerDependencies:
-      - ibm_db
-      - mariadb
-      - oracledb
-      - pg
-      - pg-hstore
-      - snowflake-sdk
-      - sqlite3
       - supports-color
-      - tedious
     dev: false
 
   /ansi-regex@5.0.1:
