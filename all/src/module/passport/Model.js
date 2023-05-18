@@ -48,8 +48,8 @@ export default class PassportModel extends Model {
       sex: STRING,
     };
 
-    const opts = { tableName: "user" };
+    const opts = { tableName: "passport" };
 
-    return this.app.defineModel("user", attrs, opts);
+    return this.app.model.define("passport", attrs, opts);
   }
 }

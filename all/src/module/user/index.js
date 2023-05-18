@@ -1,4 +1,3 @@
-import Router from "koa-router";
 import { Module } from "akjs";
 import Controller from "./Controller.js";
 import Service from "./Service.js";
@@ -7,7 +6,6 @@ import Model from "./Model.js";
 export default class User extends Module {
   constructor() {
     super("user");
-    this.router = new Router();
     this.controller = new Controller();
     this.service = new Service();
     this.model = new Model();

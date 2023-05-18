@@ -1,5 +1,5 @@
-import { Controller } from "akjs";
-export default class PassportController extends Controller {
+import BaseController from "../../base/BaseController.js";
+export default class PassportController extends BaseController {
   async login(ctx) {
     ctx.body = {
       login: true,
