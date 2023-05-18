@@ -1,14 +1,10 @@
 import BaseController from "../../base/BaseController.js";
 export default class PassportController extends BaseController {
   async login(ctx) {
-    ctx.body = {
-      login: true,
-    };
+    this.success(ctx)
   }
 
   async reg(ctx) {
-    ctx.body = {
-      reg: true,
-    };
+    this.success(ctx)
   }
 }

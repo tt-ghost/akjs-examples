@@ -10,7 +10,7 @@ export default class PassportService extends Service {
     //   { rule: !pwd, message: "pwd未传" },
     // ];
     // return this.$validate(rules, () => this.$model.login({ username, pwd }));
-    const result = await this.app.model.passport.findOne({
+    const result = await this.app.model.Passport.findOne({
       where: { username },
     });
     if (!result) return
@@ -26,13 +26,13 @@ export default class PassportService extends Service {
     //   { rule: !pwd, message: "pwd未传" },
     // ];
     // return this.$validate(rules, () => this.$model.reg({ username, pwd }));
-    const result = await this.app.model.passport.findOne({
+    const result = await this.app.model.Passport.findOne({
       where: { username },
     });
 
     if (result) return console.log('已经存在该用户')
 
-    const one = await this.app.model.passport.create({
+    const one = await this.app.model.Passport.create({
       where: { username, pwd },
     });
     return one

@@ -7,7 +7,7 @@ export default class UserController extends BaseController {
   async getCurrent(ctx) {
     console.log("cookies: token ", ctx.cookies.get("token"));
     const error = this.app.validate({ name: "string" }, { name: 2 });
-    const current = await this.app.service.user.getCurrentUser(1);
+    const current = await this.app.service.User.getCurrentUser(1);
 
     console.log("current: ", current);
     if (error) {
@@ -29,14 +29,16 @@ export default class UserController extends BaseController {
    */
   async getById(ctx) {
     const { userId } = ctx.params;
-    const [err, result] = await G.ato(
-      this.app.service.user.getUserById(userId)
-    );
-    G.res(err, ctx, () => {
-      ctx.body = {
-        data: result,
-      };
-    });
+    const rule = {
+      userId: 'id'
+    }
+    const error = this.app.validate(rule, { userId })
+    if (error) {
+      this.error(ctx, 400, '校验错误', error)
+    } else {
+      const result = await this.app.service.User.getUserById(userId)
+      this.success(ctx, result)
+    }
   }
 
   /**
@@ -45,7 +47,7 @@ export default class UserController extends BaseController {
   async create(ctx) {
     // ctx.request
     const user = ctx.request.body;
-    const [err, result] = await G.ato(this.app.service.user.addUser(user));
+    const [err, result] = await G.ato(this.app.service.User.addUser(user));
     G.res(err, ctx, () => {
       ctx.body = {
         data: result,
