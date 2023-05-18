@@ -4,7 +4,7 @@ import { Application } from "akjs";
 class App extends Application {
   ready() {
     console.log('App Ready!')
-    this.app.modelSync();
+    this.app.model.sync();
     globalUtil(global);
   }
   started() {

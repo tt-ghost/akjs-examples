@@ -10,7 +10,7 @@ export default class User extends Module {
     this.router = new Router();
     this.controller = new Controller();
     this.service = new Service();
-    this.model = Model(this.app);
+    this.model = new Model();
 
     this.loadToApp();
   }

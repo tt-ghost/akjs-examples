@@ -8,12 +8,12 @@ export default (app) => {
 
   const sequelize = new Sequelize.Sequelize(database, user, password, option);
 
-  app.defineModel = (name, attrs, opts) => {
+  app.model.define = (name, attrs, opts) => {
     if (!name) return;
     if (!attrs) attrs = {};
     if (!opts) opts = {};
     opts = { sequelize, ...opts };
     return sequelize.define(name, attrs, opts);
   };
-  app.modelSync = (...args) => sequelize.sync(...args);
+  app.model.sync = (...args) => sequelize.sync(...args);
 };
