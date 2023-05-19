@@ -15,13 +15,6 @@ export default class UserController extends BaseController {
     } else {
       this.success(ctx);
     }
-
-    // const [err, result] = await G.ato(service.user.getCurrentUser());
-    // G.res(err, ctx, () => {
-    //   ctx.body = {
-    //     data: result,
-    //   };
-    // });
   }
 
   /**
@@ -36,7 +29,7 @@ export default class UserController extends BaseController {
     if (error) {
       this.error(ctx, 400, '校验错误', error)
     } else {
-      const result = await this.app.service.User.getUserById(userId)
+      const result = await this.app.service.User.read(userId)
       this.success(ctx, result)
     }
   }
@@ -45,20 +38,39 @@ export default class UserController extends BaseController {
    * add user
    */
   async create(ctx) {
-    // ctx.request
     const user = ctx.request.body;
-    const [err, result] = await G.ato(this.app.service.User.addUser(user));
-    G.res(err, ctx, () => {
-      ctx.body = {
-        data: result,
-      };
-    });
+    const rule = {
+      username: 'string',
+      password: 'string',
+      email: 'email'
+    }
+    const error = this.app.validate(rule, user)
+    if (error) {
+      this.error(ctx, 400, '校验错误', error)
+    } else {
+      await this.app.service.User.create(user);
+      this.success()
+    }
   }
 
   /**
    * update user
    */
   async update(ctx) {
-    ctx.body = { status: 200 };
+    const user = ctx.request.body;
+    const { username, email } = user
+    const rule = {
+      userId: 'id',
+    }
+    if (username) rule.username = 'email'
+    if (email) rule.email = 'email'
+    const error = this.app.validate(rule, { ...user })
+
+    if (error) {
+      this.error(ctx, 400, '校验错误', error)
+    } else {
+      await this.app.service.User.update(user);
+      this.success()
+    }
   }
 }
