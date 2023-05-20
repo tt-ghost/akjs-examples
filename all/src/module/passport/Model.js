@@ -1,4 +1,4 @@
-import { Model } from 'akjs'
+import { Model } from "akjs";
 
 // export default (app) => {
 //   const { DataTypes } = app.Sequelize;
@@ -25,12 +25,11 @@ import { Model } from 'akjs'
 //   return app.defineModel("user", attrs, opts);
 // };
 
-
 export default class PassportModel extends Model {
   constructor() {
-    // super()
+    super();
     const { DataTypes } = this.app.Sequelize;
-    const { INTEGER,  STRING } = DataTypes
+    const { INTEGER, STRING, DATE } = DataTypes;
     const attrs = {
       id: {
         type: INTEGER.UNSIGNED,

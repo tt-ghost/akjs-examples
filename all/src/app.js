@@ -3,12 +3,12 @@ import { Application } from "akjs";
 
 class App extends Application {
   ready() {
-    console.log('App Ready!')
+    console.log("App Ready!");
     this.app.model.sync();
     globalUtil(global);
   }
   started() {
-    console.log('App Started!')
+    console.log("App Started!");
   }
 }
 

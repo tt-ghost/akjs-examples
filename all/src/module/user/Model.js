@@ -1,4 +1,4 @@
-import { Model } from 'akjs'
+import { Model } from "akjs";
 // export default (app) => {
 //   const { DataTypes } = app.Sequelize;
 //   const attrs = {
@@ -24,8 +24,9 @@ import { Model } from 'akjs'
 // };
 export default class UserModel extends Model {
   constructor() {
-    const { DataTypes } = thia.app.Sequelize;
-    const { INTEGER,  STRING } = DataTypes
+    super();
+    const { DataTypes } = this.app.Sequelize;
+    const { INTEGER, STRING, DATE } = DataTypes;
     const attrs = {
       id: {
         type: INTEGER.UNSIGNED,
@@ -45,6 +46,6 @@ export default class UserModel extends Model {
 
     const opts = { tableName: "user" };
 
-    return thsi.app.model.define("user", attrs, opts);
+    return this.app.model.define("user", attrs, opts);
   }
 }

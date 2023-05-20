@@ -44,10 +44,10 @@ export default (app) => {
       sameSite: "",
       signed: "",
     },
-  }
+  };
   config.server = {
     PORT: 8120,
-  }
+  };
   config.env = {
     // 后台启动端口
     NODE_ENV,

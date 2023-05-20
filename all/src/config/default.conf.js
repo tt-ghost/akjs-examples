@@ -3,8 +3,7 @@ import path from "path";
 export default (app) => {
   const { config } = app;
   // const { NODE_ENV } = process.env;
-  config.project = {
-  };
+  config.project = {};
   // config.db = {};
   config.router = {
     prefix: "/api",

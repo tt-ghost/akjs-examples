@@ -23,14 +23,14 @@ export default class UserController extends BaseController {
   async getById(ctx) {
     const { userId } = ctx.params;
     const rule = {
-      userId: 'id'
-    }
-    const error = this.app.validate(rule, { userId })
+      userId: "id",
+    };
+    const error = this.app.validate(rule, { userId });
     if (error) {
-      this.error(ctx, 400, '校验错误', error)
+      this.error(ctx, 400, "校验错误", error);
     } else {
-      const result = await this.app.service.User.read(userId)
-      this.success(ctx, result)
+      const result = await this.app.service.User.read(userId);
+      this.success(ctx, result);
     }
   }
 
@@ -40,16 +40,16 @@ export default class UserController extends BaseController {
   async create(ctx) {
     const user = ctx.request.body;
     const rule = {
-      username: 'string',
-      password: 'string',
-      email: 'email'
-    }
-    const error = this.app.validate(rule, user)
+      username: "string",
+      password: "string",
+      email: "email",
+    };
+    const error = this.app.validate(rule, user);
     if (error) {
-      this.error(ctx, 400, '校验错误', error)
+      this.error(ctx, 400, "校验错误", error);
     } else {
       await this.app.service.User.create(user);
-      this.success()
+      this.success();
     }
   }
 
@@ -58,19 +58,19 @@ export default class UserController extends BaseController {
    */
   async update(ctx) {
     const user = ctx.request.body;
-    const { username, email } = user
+    const { username, email } = user;
     const rule = {
-      userId: 'id',
-    }
-    if (username) rule.username = 'email'
-    if (email) rule.email = 'email'
-    const error = this.app.validate(rule, { ...user })
+      userId: "id",
+    };
+    if (username) rule.username = "email";
+    if (email) rule.email = "email";
+    const error = this.app.validate(rule, { ...user });
 
     if (error) {
-      this.error(ctx, 400, '校验错误', error)
+      this.error(ctx, 400, "校验错误", error);
     } else {
       await this.app.service.User.update(user);
-      this.success()
+      this.success();
     }
   }
 }

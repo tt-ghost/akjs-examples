@@ -14,27 +14,27 @@ export default class UserService extends Service {
   }
 
   async create(user) {
-    const { username, email, password } = user || {}
+    const { username, email, password } = user || {};
     const one = await this.app.model.User.findOne({
-      where: { username }
+      where: { username },
     });
     if (one) {
-      return new Error('已经存在')
+      return new Error("已经存在");
     } else {
-      const userPO = { username, email, password, deleted: 0 }
+      const userPO = { username, email, password, deleted: 0 };
       const result = await this.app.model.User.create(userPO);
       return result;
     }
   }
 
   async update(user) {
-    const { userId, username, email, password } = user || {}
+    const { userId, username, email, password } = user || {};
     const one = await this.read(userId);
     if (!one) {
-      return new Error('未注册')
+      return new Error("未注册");
     } else {
-      const userPO = { username, email, password }
-      await one.update(userPO)
+      const userPO = { username, email, password };
+      await one.update(userPO);
       return one;
     }
   }
