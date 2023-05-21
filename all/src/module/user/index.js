@@ -13,10 +13,22 @@ export default class User extends Module {
     this.loadToApp();
   }
   routes() {
-    this.router.get("/current", (ctx) => this.controller.getCurrent(ctx));
-    this.router.get("/:userId", (ctx) => this.controller.getById(ctx));
-    this.router.post("/", (ctx) => this.controller.create(ctx));
-    this.router.put("/", (ctx) => this.controller.update(ctx));
+    this.router.get(
+      "/current",
+      async (ctx) => await this.controller.getCurrent(ctx)
+    );
+    this.router.get(
+      "/read/:userId",
+      async (ctx) => await this.controller.getById(ctx)
+    );
+    this.router.post(
+      "/create",
+      async (ctx) => await this.controller.create(ctx)
+    );
+    this.router.put(
+      "/update",
+      async (ctx) => await this.controller.update(ctx)
+    );
 
     return this.router.routes();
   }

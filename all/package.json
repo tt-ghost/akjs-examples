@@ -6,9 +6,7 @@
     "start": "npm run dev",
     "dev": "cross-env NODE_ENV=dev node ./src/app.js",
     "server": "pm2 start ./src/app.js",
-    "server-test": "cross-env NODE_ENV=test npm run server",
-    "server-stage": "cross-env NODE_ENV=stage npm run server",
-    "server-prod": "cross-env NODE_ENV=prod npm run server"
+    "server-test": "cross-env NODE_ENV=test npm run server"
   },
   "description": "koa framework examples",
   "license": "MIT",
