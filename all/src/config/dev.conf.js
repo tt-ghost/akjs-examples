@@ -14,8 +14,8 @@ export default (app) => {
     user: "root",
     password: "12345678",
     option: {
-      port: "3306",
-      host: "localhost",
+      port: 3306,
+      host: "127.0.0.1",
       connectTimeout: 30 * 1000,
       dialect: "mysql",
     },
