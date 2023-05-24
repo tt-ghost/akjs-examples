@@ -9,10 +9,10 @@ export default class PassportController extends BaseController {
     };
     const error = this.app.validate(rule, user);
     if (error) {
-      this.error(ctx, 400, "校验错误", error);
+      this.badRequest(ctx, error);
     } else {
       await this.app.service.Passport.login(user);
-      this.success();
+      this.success(ctx);
     }
   }
 
@@ -25,10 +25,10 @@ export default class PassportController extends BaseController {
     };
     const error = this.app.validate(rule, user);
     if (error) {
-      this.error(ctx, 400, "校验错误", error);
+      this.badRequest(ctx, error);
     } else {
       await this.app.service.Passport.reg(user);
-      this.success();
+      this.success(ctx);
     }
   }
 }

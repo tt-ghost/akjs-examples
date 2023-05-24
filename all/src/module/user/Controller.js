@@ -11,7 +11,7 @@ export default class UserController extends BaseController {
 
     console.log("current: ", current);
     if (error) {
-      this.error(ctx, 400, "校验错误", error);
+      this.badRequest(ctx, error);
     } else {
       this.success(ctx);
     }
@@ -27,7 +27,7 @@ export default class UserController extends BaseController {
     };
     const error = this.app.validate(rule, { userId });
     if (error) {
-      this.error(ctx, 400, "校验错误", error);
+      this.badRequest(ctx, error);
     } else {
       const result = await this.app.service.User.read(userId);
       this.success(ctx, result);
@@ -46,10 +46,10 @@ export default class UserController extends BaseController {
     };
     const error = this.app.validate(rule, user);
     if (error) {
-      this.error(ctx, 400, "校验错误", error);
+      this.badRequest(ctx, error);
     } else {
       await this.app.service.User.create(user);
-      this.success();
+      this.success(ctx);
     }
   }
 
@@ -67,10 +67,10 @@ export default class UserController extends BaseController {
     const error = this.app.validate(rule, { ...user });
 
     if (error) {
-      this.error(ctx, 400, "校验错误", error);
+      this.badRequest(ctx, error);
     } else {
       await this.app.service.User.update(user);
-      this.success();
+      this.success(ctx);
     }
   }
 }
