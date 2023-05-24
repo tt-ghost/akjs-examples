@@ -1,26 +1,17 @@
 # akjs examples
 
-> 基于 Koa 的 Nodejs 轻量框架，快速生成 node + koa + mysql 等功能的后台服务
-
-## 核心依赖
-
-```
-node + koa2 + mysql + pm2
-```
+> 基于 Koa 的 Nodejs 轻量框架，快速生成 koa + mysql 等功能的后台服务
 
 ## 项目启动
 
-1. 依赖安装 `npm i`
+1. 依赖安装 `pnpm i`
 2. 启动数据库 `mysql.server start`
 3. 登录数据库 `mysql -uroot -p` 输入密码进入
 4. 创建数据库 `CREATE DATABASE akjs_example;`
 5. 启动方式
-   - 本地启动 `npm start`
-   - 测试环境启动 `npm run server-test`
-   - 预发环境启动 `npm run server-stage`
-   - 线上环境启动 `npm run server-prod`
-
-- 日常运维，[pm2 文档](https://github.com/creationix/nvm)
+   - 本地启动 `npm run dev` 通过 nodemon 本地热加载
+     - 访问 [127.0.0.1:8120:/api/user/current](127.0.0.1:8120:/api/user/current)
+   - 线上环境启动 `npm run server-prod`，可以根据情况用 [pm2](https://www.npmjs.com/package/pm2) 管理
 
 ## 项目结构
 
@@ -39,7 +30,7 @@ node + koa2 + mysql + pm2
 │   ├── index.js
 │   ├── proxy-cdn.js
 │   └── session.js
-├── module               // 业务模块，每个文件夹对应一个模块，含route\service\model
+├── module                // 业务模块，每个文件夹对应一个模块，含route\service\model
 │   ├── index.js
 │   ├── passport          // 登录业务模块
 │   │   ├── index.js
@@ -56,9 +47,6 @@ node + koa2 + mysql + pm2
 │   ├── sequelize.js
 │   └── validate.js
 └── utils                 // 方法工具集
-    ├── db.js
-    ├── error.js
-    ├── global.js
-    ├── helper.js
-    └── res.js
+    ├── index.js
+    └── crypto.js
 ```

@@ -13,14 +13,8 @@ export default class User extends Module {
     this.loadToApp();
   }
   routes() {
-    this.router.get(
-      "/current",
-      async (ctx) => await this.controller.getCurrent(ctx)
-    );
-    this.router.get(
-      "/read/:userId",
-      async (ctx) => await this.controller.getById(ctx)
-    );
+    this.router.get("/current", (ctx) => this.controller.getCurrent(ctx));
+    this.router.get("/read/:userId", (ctx) => this.controller.getById(ctx));
     this.router.post(
       "/create",
       async (ctx) => await this.controller.create(ctx)

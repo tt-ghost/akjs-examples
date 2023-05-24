@@ -5,7 +5,3 @@ export default function favicon() {
     }
   };
 }
-
-// export default (app) => {
-//   app.use(favicon());
-// };

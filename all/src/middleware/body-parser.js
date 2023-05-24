@@ -1,9 +1,6 @@
 import bodyParser from "koa-bodyparser";
 
 export default (app) => {
-  app.use(
-    bodyParser({
-      formLimit: "1mb",
-    })
-  );
+  const config = app.config.bodyParser || {};
+  return bodyParser(config);
 };
