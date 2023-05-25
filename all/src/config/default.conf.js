@@ -55,7 +55,7 @@ export default (app) => {
 
   // 服务启动配置
   config.server = {
-    PORT: 8120,
+    PORT: 8121,
   };
 
   // 环境变量
